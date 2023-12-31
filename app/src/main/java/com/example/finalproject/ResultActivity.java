@@ -40,29 +40,25 @@ public class ResultActivity extends AppCompatActivity {
         resultView.setText(spannable);
 
         Button reAddButton = findViewById(R.id.reAddButton);
-        reAddButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ResultActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        reAddButton.setOnClickListener(v -> {
+            handler.removeCallbacks(runnable);
+            Intent intent = new Intent(ResultActivity.this, MainActivity.class);
+            startActivity(intent);
         });
 
         Button reChooseButton = findViewById(R.id.reChooseButton);
-        reChooseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ResultActivity.this, RestaurantActivity.class);
-                startActivity(intent);
-            }
+        reChooseButton.setOnClickListener(v -> {
+            handler.removeCallbacks(runnable);
+            Intent intent = new Intent(ResultActivity.this, RestaurantActivity.class);
+            startActivity(intent);
         });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // 延遲 5 秒執行 Runnable
-        handler.postDelayed(runnable, 5000);
+        // 延遲 10 秒執行 Runnable
+        handler.postDelayed(runnable, 10000);
     }
 
 }
