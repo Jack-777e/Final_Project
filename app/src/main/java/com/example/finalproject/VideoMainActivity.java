@@ -18,12 +18,12 @@ public class VideoMainActivity extends AppCompatActivity {
 
     private static final String TAG = "VideoMainActivity";
     private WebView mWebView;
-    private final String VideoEmbededAdress = "<iframe width=\"410\" height=\"650\" src=\"https://www.youtube.com/embed/cc-TAmC8zrs?si=5Y3rxwhse-UQWjuE&autoplay=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+    private final String VideoEmbededAdress = "<iframe width=\"400\" height=\"750\" src=\"https://www.youtube.com/embed/cc-TAmC8zrs?si=5Y3rxwhse-UQWjuE&autoplay=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
     private final String mimeType = "text/html";
     private final String encoding = "UTF-8";
     private String USERAGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36";
     private Handler mHandler;
-    private static final int LOOP_INTERVAL = 20000; // Loop interval in milliseconds
+    private static final int LOOP_INTERVAL = 40000; // Loop interval in milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

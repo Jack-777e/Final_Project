@@ -39,12 +39,9 @@ public class MainActivity extends AppCompatActivity {
                     restaurantNameView.setTextSize(20);
 
                     Button deleteButton = restaurantView.findViewById(R.id.deleteButton);
-                    deleteButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            restaurantLayout.removeView(restaurantView);
-                            restaurantList.remove(restaurantName);
-                        }
+                    deleteButton.setOnClickListener(v1 -> {
+                        restaurantLayout.removeView(restaurantView);
+                        restaurantList.remove(restaurantName);
                     });
 
                     restaurantLayout.addView(restaurantView);
@@ -58,9 +55,13 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
-                intent.putStringArrayListExtra("restaurantList", restaurantList);
-                startActivity(intent);
+                if (restaurantList.size() < 2) {
+                    Toast.makeText(MainActivity.this, "請輸入餐廳名稱，至少兩個", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+                    intent.putStringArrayListExtra("restaurantList", restaurantList);
+                    startActivity(intent);
+                }
             }
         });
     }
